@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { WebSocketServer } from "ws";
 import Axios from "axios";
+
 let users = {};
 let callsData = {};
 
@@ -11,7 +12,7 @@ app.use(cors());
 
 app.get("/api", getToken);
 app.listen(4000, "127.0.0.1", () => {
-  console.log("listening ...");
+  console.log("listening on localhost ...");
 });
 
 const wss = new WebSocketServer({ port: 4003 });
@@ -105,21 +106,6 @@ wss.on("connection", function (ws) {
       }
       case "sms-received": {
         let cid = data.cid;
-        // if callsData[cid].from.token === data.token -- call to itself
-        // allsData[cid].from.ws,
-
-        // if (callsData[cid].from.ws.callState === "connected") {
-        //   sendTo(ws, {
-        //     type: "alert",
-        //     text: "کاربر در حال گفتگو می باشد",
-        //   });
-        //   sendTo(ws, {
-        //     type: "info",
-        //     cid,
-        //     reset: true,
-        //   });
-        // }
-
         if (callsData[cid]) {
           callsData[cid].to = { ws, token: data.token };
           if (callsData[cid].status === "end") {
@@ -169,7 +155,7 @@ wss.on("connection", function (ws) {
         break;
       }
       case "leave": {
-        let conn = users[data.name]; //callee
+        let conn = users[data.name];  
         let cid = data.cid;
 
         ws.callState = "disconnect";
@@ -198,7 +184,6 @@ wss.on("connection", function (ws) {
   ws.on("close", function () {
     ws.callState = "";
     if (ws.name) {
-      // delete users[ws.name];
       if (ws.otherName) {
         console.log("Disconnecting from ", ws.otherName, Date.now());
         let conn = users[ws.otherName];
@@ -211,11 +196,9 @@ wss.on("connection", function (ws) {
       }
     }
   });
-
-  //ws.send("Hello world");
 });
 async function sendSms(receptor, link) {
-  console.log("send SMS link>      ", link);
+  console.log("send sent link :", link);
   let message = "«کـالـو»";
   message += "\n";
   message += "کاربری در خواست تماس برای شما ارسال کرده است.";
@@ -224,17 +207,14 @@ async function sendSms(receptor, link) {
   message += "\n";
   message += link;
   message += "\n\n";
-  // message += `اگر این پیام به اشتباه به دست شما رسیده میتوانید دریافت پیامک را لغو کنید`;
-  // message += "\n";
-  // message += "عضویت=12";
   message += "\n";
   message += "لغو=11";
 
   let body = {
-    from: "50004001778754",
+    from: "xxxxxxxxxxxxxxxx",
     to: receptor,
-    username: "09028778754",
-    password: "C#MBS",
+    username: "xxxxxxxxxxx",
+    password: "xxxxx",
     text: message,
   };
 
@@ -243,10 +223,3 @@ async function sendSms(receptor, link) {
 function sendTo(connection, message) {
   connection.send(JSON.stringify(message));
 }
-// wss.broadcast = function(data) {
-//   this.clients.forEach(function(client) {
-//     if(client.readyState === WebSocket.OPEN) {
-//       client.send(data);
-//     }
-//   });
-// };

@@ -4,7 +4,7 @@
 
  This is a project with the aim of making a video call that can be started by sending a text message.
  
-Demo app: [calloo.ir](https://calloo.xyz)
+Demo app: [calloo.ir](https://calloo.ir)
 
 
 **Tools used in this project:**
