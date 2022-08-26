@@ -1,0 +1,21 @@
+zone "calloo.ir" {
+    type master;
+    file "/etc/bind/db.calloo.ir";
+};
+
+zone "www.calloo.ir" {
+    type master;
+    file "/etc/bind/db.calloo.ir";
+};
+
+
+zone "calloo.xyz" {
+    type master;
+    file "/etc/bind/db.calloo.xyz";
+};
+
+zone "www.calloo.xyz" {
+    type master;
+    file "/etc/bind/db.calloo.xyz";
+};
+

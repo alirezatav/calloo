@@ -1,0 +1,33 @@
+.dial-input {
+  width: 100%;
+  margin-top: 30px;
+  padding-right: 50px;
+  padding-left: 50px;
+  input {
+    text-align: center;
+    color: #686868;
+    padding: 8px;
+    width: 100%;
+    background-color: rgb(251 251 251 / 69%);
+    outline: none;
+    border: 1px solid rgb(217 218 218);
+    border-radius: 5px;
+    font-weight: bold;
+  }
+}
+.dial-button {
+  margin-top: 25px;
+  button {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background: linear-gradient(0deg, #fd4a85, #ffa58d);
+    color: white;
+    padding: 11px;
+    height: 52px;
+    width: 52px;
+  }
+}
+.text {
+  color: #4d4d4d;
+}

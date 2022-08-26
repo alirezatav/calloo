@@ -1,0 +1,15 @@
+$TTL    604800
+@       IN      SOA     ns1.calloo.xyz. root.calloo.xyz. (
+                              5          ; Serial
+                         604800          ; Refresh
+                          86400          ; Retry
+                        2419200          ; Expire
+                         604800 )        ; Negative Cache TTL
+ 
+@       IN      A       141.11.182.64
+ 
+@       IN      NS      ns1.calloo.xyz.
+ns1     IN      A       141.11.182.64
+ 
+@       IN      NS      ns2.calloo.xyz.
+ns2     IN      A       141.11.182.64
