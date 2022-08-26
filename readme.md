@@ -13,7 +13,8 @@ Demo app: [calloo.ir](https://calloo.ir)
  - Websocket
  - HTTP server
  
- frontend
+
+ frontend (React)
  - [React](https://reactjs.org/)
  - [Webrtc](https://webrtc.org)
 
