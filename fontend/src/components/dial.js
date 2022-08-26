@@ -33,10 +33,10 @@ const Dial = (props) => {
           <button
             onClick={() => {
               let isMatch = phone.match(/^09[0|1|2|3][0-9]{8}$/);
-              // if (!isMatch) {
-              //   alert("wrong mobile number");
-              //   return;
-              // }
+              if (!isMatch) {
+                alert("شماره موبایل را به درستی وارد کنید");
+                return;
+              }
               props.sendOffer(phone);
             }}
             className="call-button"
